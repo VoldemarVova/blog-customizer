@@ -68,7 +68,7 @@ export const Select = (props: SelectProps) => {
 				<div
 					className={clsx(
 						styles.placeholder,
-						styles[selected?.optionClassName || '']
+						styles[(selected?.optionClassName as keyof typeof styles) || '']
 					)}
 					data-status={status}
 					data-selected={!!selected?.value}
