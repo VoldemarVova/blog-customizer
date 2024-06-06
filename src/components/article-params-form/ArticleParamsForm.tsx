@@ -21,10 +21,10 @@ import { Separator } from 'components/separator';
 import { UseOutsideClickCloseForm } from 'src/hooks/useOutsideClickCloseForm';
 
 type ArticleParamsFormProps = {
-	setState: (newState: ArticleStateType) => void;
+	setAppState: (newState: ArticleStateType) => void;
 };
 
-export const ArticleParamsForm = ({ setState }: ArticleParamsFormProps) => {
+export const ArticleParamsForm = ({ setAppState }: ArticleParamsFormProps) => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const sidebarRef = useRef<HTMLDivElement>(null);
 	const [select, setSelect] = useState<ArticleStateType>(defaultArticleState);
@@ -48,13 +48,13 @@ export const ArticleParamsForm = ({ setState }: ArticleParamsFormProps) => {
 
 	const handleReset = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		setState(defaultArticleState);
+		setAppState(defaultArticleState);
 		setSelect(defaultArticleState);
 	};
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		setState(select);
+		setAppState(select);
 	};
 
 	return (
